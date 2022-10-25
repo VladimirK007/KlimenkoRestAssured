@@ -1,5 +1,8 @@
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
+
 import static io.restassured.RestAssured.given;
 
 public class GetAllGamesTest extends SpecificationsRestAssured {
@@ -20,9 +23,9 @@ public class GetAllGamesTest extends SpecificationsRestAssured {
                 .body()
                 .extract()
                 .response()
-                .getTime();
+                .getTimeIn(TimeUnit.MILLISECONDS);
 
-        System.out.println("Time of Response is: " + responseTime + " ms");
+        System.out.println("Time of Response is: " + responseTime + "ms");
     }
 
 
